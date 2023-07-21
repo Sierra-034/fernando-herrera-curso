@@ -40,11 +40,20 @@ const getSalario = (id) => {
     });
 };
 
-const id = 2;
-getEmpleado(id)
-    .then(console.log)
-    .catch(console.error);
+const id = 4;
+// getEmpleado(id)
+//     .then(console.log)
+//     .catch(console.error);
 
-getSalario(id)
-    .then(console.log)
+// getSalario(id)
+//     .then(console.log)
+//     .catch(console.error);
+
+let nombre;
+getEmpleado(id)
+    .then(empleado => {
+        nombre = empleado;
+        return getSalario(id);
+    })
+    .then(salario => console.log(nombre, salario))
     .catch(console.error);
